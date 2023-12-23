@@ -26,7 +26,7 @@ user.forEach((v, e) => {
             if (v.getAttribute("value") === computer[a].getAttribute("value")) {
                 console.log("inside if");
                 document.querySelector(".result").style.visibility = "visible";
-                document.querySelector(".result p").innerText = "TIE"; 
+                document.querySelector(".result p").innerText = "Game was Draw"; 
                 document.querySelector(".game-icons").classList.add("hide")
                 document.querySelector(".game h1").innerText = "Result!"
             } else if ((v.getAttribute("value") === "stone") && (computer[a].getAttribute("value") === "scissor")
@@ -34,12 +34,12 @@ user.forEach((v, e) => {
                 || (v.getAttribute("value") === "scissor") && (computer[a].getAttribute("value") === "paper")
             ) {
                 document.querySelector(".result").style.visibility = "visible";
-                document.querySelector(".result p").innerText = "Winner is User!";
+                document.querySelector(".result p").innerText = "Congratulations! Winner is User";
                 document.querySelector(".game-icons").classList.add("hide")
                 document.querySelector(".game h1").innerText = "Result!"
             } else {
                 document.querySelector(".result").style.visibility = "visible";
-                document.querySelector(".result p").innerText = "Winner is Computer";
+                document.querySelector(".result p").innerText = "Congratulations! Winner is User";
                 document.querySelector(".game-icons").classList.add("hide")
                 document.querySelector(".game h1").innerText = "Result!"
             }
