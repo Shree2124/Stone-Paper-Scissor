@@ -7,10 +7,16 @@ let computer = document.querySelectorAll(".computer ul li button");
 //     console.log(i.getAttribute("value"));
 // }
 
+function result(str) {
+    document.querySelector(".result").style.visibility = "visible";
+    document.querySelector(".result p").innerText = `${str}`;
+    document.querySelector(".game-icons").classList.add("hide")
+    document.querySelector(".game h1").innerText = "Result!"
+}
 
 user.forEach((v, e) => {
     v.addEventListener("click", () => {
-        
+
         let a = Math.floor(Math.random() * 3);
         let btn = document.querySelector(".result button");
         btn.addEventListener('click', () => {
@@ -23,26 +29,18 @@ user.forEach((v, e) => {
         }
         console.log(v.getAttribute("value"), computer[a].getAttribute("value"));
 
-            if (v.getAttribute("value") === computer[a].getAttribute("value")) {
-                console.log("inside if");
-                document.querySelector(".result").style.visibility = "visible";
-                document.querySelector(".result p").innerText = "Game was Draw"; 
-                document.querySelector(".game-icons").classList.add("hide")
-                document.querySelector(".game h1").innerText = "Result!"
-            } else if ((v.getAttribute("value") === "stone") && (computer[a].getAttribute("value") === "scissor")
-                || (v.getAttribute("value") === "paper") && (computer[a].getAttribute("value") === "stone")
-                || (v.getAttribute("value") === "scissor") && (computer[a].getAttribute("value") === "paper")
-            ) {
-                document.querySelector(".result").style.visibility = "visible";
-                document.querySelector(".result p").innerText = "Congratulations! Winner is User";
-                document.querySelector(".game-icons").classList.add("hide")
-                document.querySelector(".game h1").innerText = "Result!"
-            } else {
-                document.querySelector(".result").style.visibility = "visible";
-                document.querySelector(".result p").innerText = "Congratulations! Winner is User";
-                document.querySelector(".game-icons").classList.add("hide")
-                document.querySelector(".game h1").innerText = "Result!"
-            }
+        if (v.getAttribute("value") === computer[a].getAttribute("value")) {
+            console.log("inside if");
+            result('Game is Draw')
+
+        } else if ((v.getAttribute("value") === "stone") && (computer[a].getAttribute("value") === "scissor")
+            || (v.getAttribute("value") === "paper") && (computer[a].getAttribute("value") === "stone")
+            || (v.getAttribute("value") === "scissor") && (computer[a].getAttribute("value") === "paper")
+        ) {
+            result('Winner is Computer')
+        } else {
+            result('Winner is User')
+        }
     })
 });
 
